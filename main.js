@@ -11,8 +11,10 @@ console.log('-----');
 
 let test;
 test = 1;
+console.log(test);
 test++;
-test += 1;
+console.log(test);
+test += '1';
 console.log(test);
 test--;
 console.log(test);
