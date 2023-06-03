@@ -1,19 +1,30 @@
-const min = function (a,b) {
-
-if (a <= b) {
-  return a;
-}
-return b;
+const min = function (a, b) {
+  if (a <= b) {
+    return a;
+  }
+  return b;
 };
-console.log(min(5,25));
+console.log(min(5, 25));
 
 console.log('-----');
 
-const max = function (a,b) {
-
+const max = function (a, b) {
   if (a >= b) {
     return a;
   }
   return b;
 };
-console.log(max(5,25));
+console.log(max(5, 25));
+
+console.log('-----');
+
+const arr = [10, 25, 30, 45, 50, 65, 70, 85, 90, 1];
+console.log(arr);
+const change = function (numb) {
+  const replase = `${numb}`;
+  if (replase.includes('0')) {
+    return `${numb}`.replaceAll('0', 'zero');
+  }
+  return numb;
+};
+console.log(arr.map(change).join(', '));
