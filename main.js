@@ -2,11 +2,10 @@ const pali = 'шалаш';
 console.log(pali);
 
 const palindrome = function (pali) {
-  if (
-    pali[0] === pali[pali.length - 1] &&
-    pali[1] === pali[pali.length - 2] &&
-    pali[2] === pali[pali.length - 3]
-  ) {
+  const check = pali.split('').reverse().join('');
+  console.log(check);
+
+  if (pali === check) {
     return 'true';
   }
   return 'false';
