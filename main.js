@@ -1,52 +1,46 @@
-let user = 'John Doe';
-console.log(user);
+const pali = 'шалаш';
+console.log(pali);
 
-const student = 'Alex';
-console.log(student);
+const palindrome = function (pali) {
+  const check = pali.split('').reverse().join('');
+  console.log(check);
 
-user = student;
-console.log(user);
-
-console.log('-----');
-
-let test;
-test = 1;
-console.log(test);
-test++;
-console.log(test);
-test += '1';
-console.log(test);
-test--;
-console.log(test);
-test = true;
-console.log(test);
-
-console.log('-----');
-
-const mass = [2, 3, 5, 8];
-
-let result = 1;
-for (let i = 0; i < mass.length; i++) {
-  result = result * mass[i];
-}
-console.log(result);
-
-console.log('-----');
-
-const arr = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i] > 5 && arr[i] < 10) {
-    console.log(arr[i]);
+  if (pali === check) {
+    return 'true';
   }
-}
+  return 'false';
+};
+console.log(palindrome(pali));
 
 console.log('-----');
 
-const massarr = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < massarr.length; i++) {
-  if (massarr[i] % 2 === 0) {
-    console.log(massarr[i]);
+const min = function (a, b) {
+  if (a <= b) {
+    return a;
   }
-}
+  return b;
+};
+console.log(min(5, 25));
+
+console.log('-----');
+
+const max = function (a, b) {
+  if (a >= b) {
+    return a;
+  }
+  return b;
+};
+console.log(max(5, 25));
+
+console.log('-----');
+
+const arr = [10, 25, 30, 45, 50, 65, 70, 85, 90, 1];
+console.log(arr);
+const change = function (numb) {
+  const replase = `${numb}`;
+  if (replase.includes('0')) {
+    return `${numb}`.replaceAll('0', 'zero');
+  }
+  return numb;
+};
+console.log(arr.map(change).join(', '));
