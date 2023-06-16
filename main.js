@@ -13,7 +13,13 @@ let i1 = -1;
 let i2 = -1;
 let i3 = -1;
 
-const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+export const colors = [
+  'magenta',
+  'cyan',
+  'firebrick',
+  'springgreen',
+  'skyblue',
+];
 
 const textCol1 = () => {
   i1++;
