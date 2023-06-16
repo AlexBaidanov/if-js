@@ -1,15 +1,9 @@
-(() => {
-  function sum() {
-    const numA = Math.random() * 10 + 1;
-    const numB = Math.random() * 10 + 1;
-
-    return function () {
-      return numA + numB;
-    };
-  }
-
-  console.log(sum()());
-})();
+export function sum(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+console.log(sum(2)(5));
 
 const text1 = document.getElementById('text1');
 const text2 = document.getElementById('text2');
@@ -40,12 +34,14 @@ const textCol3 = () => {
   text3.style.color = colors[i3];
 };
 
-text1.addEventListener('click', () => {
-  textCol1();
-});
-text2.addEventListener('click', () => {
-  textCol2();
-});
-text3.addEventListener('click', () => {
-  textCol3();
+document.addEventListener('DOMContentLoaded', () => {
+  text1.addEventListener('click', () => {
+    textCol1();
+  });
+  text2.addEventListener('click', () => {
+    textCol2();
+  });
+  text3.addEventListener('click', () => {
+    textCol3();
+  });
 });
