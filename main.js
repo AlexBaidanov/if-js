@@ -1,46 +1,53 @@
-const pali = 'шалаш';
-console.log(pali);
+export function sum(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+console.log(sum(2)(5));
 
-const palindrome = function (pali) {
-  const check = pali.split('').reverse().join('');
-  console.log(check);
+const text1 = document.getElementById('text1');
+const text2 = document.getElementById('text2');
+const text3 = document.getElementById('text3');
 
-  if (pali === check) {
-    return 'true';
-  }
-  return 'false';
+let i1 = -1;
+let i2 = -1;
+let i3 = -1;
+
+export const colors = [
+  'magenta',
+  'cyan',
+  'firebrick',
+  'springgreen',
+  'skyblue',
+];
+
+const textCol1 = () => {
+  i1++;
+  if (i1 > 4) i1 = 0;
+
+  text1.style.color = colors[i1];
 };
-console.log(palindrome(pali));
+const textCol2 = () => {
+  i2++;
+  if (i2 > 4) i2 = 0;
 
-console.log('-----');
-
-const min = function (a, b) {
-  if (a <= b) {
-    return a;
-  }
-  return b;
+  text2.style.color = colors[i2];
 };
-console.log(min(5, 25));
+const textCol3 = () => {
+  i3++;
+  if (i3 > 4) i3 = 0;
 
-console.log('-----');
-
-const max = function (a, b) {
-  if (a >= b) {
-    return a;
-  }
-  return b;
+  text3.style.color = colors[i3];
 };
-console.log(max(5, 25));
 
-console.log('-----');
-
-const arr = [10, 25, 30, 45, 50, 65, 70, 85, 90, 1];
-console.log(arr);
-const change = function (numb) {
-  const replase = `${numb}`;
-  if (replase.includes('0')) {
-    return `${numb}`.replaceAll('0', 'zero');
-  }
-  return numb;
-};
-console.log(arr.map(change).join(', '));
+document.addEventListener('DOMContentLoaded', () => {
+  text1.addEventListener('click', () => {
+    textCol1();
+  });
+  text2.addEventListener('click', () => {
+    textCol2();
+  });
+  text3.addEventListener('click', () => {
+    textCol3();
+  });
+});
