@@ -51,3 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
     textCol3();
   });
 });
+
+function replacer(match, year, month, date) {
+  return [date, month, year].join('.');
+}
+
+const date = '1920-04-20';
+console.log(date);
+
+const newDate = date.replace(/(\d{4})\D(\d{1,2})\D(\d{1,2})/g, replacer);
+console.log(newDate);
+
+console.log('..............');
