@@ -1,3 +1,10 @@
+const pali = 'шалаш';
+console.log(pali);
+
+const check = (pali) => pali.split('').reverse().join('') == pali;
+
+console.log(check(pali));
+
 export function sum(a) {
   return function (b) {
     return a + b;
