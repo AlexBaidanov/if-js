@@ -235,3 +235,16 @@ const search = (search, hotels) => {
 };
 const results = search('usa', hotels);
 console.log(results);
+
+function uniq(hotels) {
+  const countries = {};
+  hotels.forEach((value) => {
+    if (!countries[value.country]) {
+      countries[value.country] = [];
+    }
+    countries[value.country].push(value.city);
+  });
+  return countries;
+}
+
+console.log(uniq(hotels));
