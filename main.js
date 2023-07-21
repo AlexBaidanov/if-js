@@ -9,3 +9,17 @@ class User {
 }
 
 console.log(User);
+
+class Student extends User {
+  constructor({ admissionYear, courseName, ...props }) {
+    super(...props);
+    this.admissionYear = admissionYear;
+    this.courseName = courseName;
+  }
+  course() {
+    const currentYear = new Date().getFullYear();
+    return currentYear - this.admissionYear;
+  }
+}
+
+console.log(Student);
