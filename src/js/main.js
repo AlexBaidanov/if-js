@@ -46,6 +46,8 @@ const homesButtonPike = document.createElement('div');
 homesButtonPike.classList.add('homes__arrow--pike');
 homesButtonEllipse.appendChild(homesButtonPike);
 
+const mainSection = document.querySelector('.main__content');
+
 const destinationSection = document.querySelector('.destination');
 
-document.body.insertBefore(homesSection, destinationSection);
+mainSection.insertBefore(homesSection, destinationSection);
