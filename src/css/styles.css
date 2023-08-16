@@ -169,6 +169,7 @@
 .header__page {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .header__tagline {
@@ -355,6 +356,63 @@
 
 .button {
   cursor: pointer;
+}
+
+.form__filter {
+  width: 259px;
+  height: 158px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  position: absolute;
+  top: 69%;
+  right: 15%;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.form__filter._filter__on {
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+}
+
+.filter__block {
+  display: grid;
+  grid-template-columns: 50% 14% 22% 14%;
+}
+
+.filter__description {
+  display: flex;
+  align-items: center;
+}
+
+.filter__description._count {
+  display: flex;
+  justify-content: center;
+}
+
+.filter__button {
+  width: 30px;
+  height: 30px;
+  background-color: var(--white);
+  border: solid 1px;
+}
+
+._active {
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
+._disable {
+  color: var(--secondary-text);
+  border-color: var(--secondary-text);
 }
 
 .header__apps {
