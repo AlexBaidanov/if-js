@@ -4,14 +4,21 @@ formBooking.addEventListener('click', () => {
   formFilter.classList.toggle('_filter__on');
 });
 
-const increaseButtons = document.querySelectorAll('.button__increase');
-increaseButtons.forEach((button) => {
+const formInputAdult = document.querySelector('.form__adults-num');
+const formInputChild = document.querySelector('.form__children-num');
+const formInputRoom = document.querySelector('.form__room-num');
+
+const increaseButtonsAdult = document.querySelectorAll(
+  '.button__increase--adults',
+);
+increaseButtonsAdult.forEach((button) => {
   button.addEventListener('click', () => {
     const countElement = button.previousElementSibling;
     const currentValue = parseInt(countElement.textContent);
     const maxValue = parseInt(button.dataset.maxValue);
     if (currentValue < maxValue) {
       countElement.textContent = currentValue + 1;
+      formInputAdult.value = currentValue + 1;
       if (currentValue + 1 === maxValue) {
         button.classList.remove('_active');
         button.classList.add('_disable');
@@ -23,13 +30,16 @@ increaseButtons.forEach((button) => {
   });
 });
 
-const decreaseButtons = document.querySelectorAll('.button__decrease');
-decreaseButtons.forEach((button) => {
+const decreaseButtonsAdult = document.querySelectorAll(
+  '.button__decrease--adults',
+);
+decreaseButtonsAdult.forEach((button) => {
   button.addEventListener('click', () => {
     const countElement = button.nextElementSibling;
     const currentValue = parseInt(countElement.textContent);
     if (currentValue > 0) {
       countElement.textContent = currentValue - 1;
+      formInputAdult.value = currentValue - 1;
       if (currentValue - 1 === 0) {
         button.classList.remove('_active');
         button.classList.add('_disable');
@@ -55,6 +65,7 @@ increaseButtonsChild.forEach((button) => {
     const maxValue = parseInt(button.dataset.maxValue);
     if (currentValue < maxValue) {
       countElement.textContent = currentValue + 1;
+      formInputChild.value = currentValue + 1;
       if (currentValue + 1 === maxValue) {
         button.classList.remove('_active');
         button.classList.add('_disable');
@@ -93,6 +104,7 @@ decreaseButtonsChild.forEach((button) => {
     const currentValue = parseInt(countElement.textContent);
     if (currentValue > 0) {
       countElement.textContent = currentValue - 1;
+      formInputChild.value = currentValue - 1;
       if (currentValue - 1 === 0) {
         button.classList.remove('_active');
         button.classList.add('_disable');
@@ -111,6 +123,49 @@ decreaseButtonsChild.forEach((button) => {
         }
       }
       formFilter.style.height = 'auto';
+    }
+  });
+});
+
+const increaseButtonsRoom = document.querySelectorAll(
+  '.button__increase--room',
+);
+increaseButtonsRoom.forEach((button) => {
+  button.addEventListener('click', () => {
+    const countElement = button.previousElementSibling;
+    const currentValue = parseInt(countElement.textContent);
+    const maxValue = parseInt(button.dataset.maxValue);
+    if (currentValue < maxValue) {
+      countElement.textContent = currentValue + 1;
+      formInputRoom.value = currentValue + 1;
+      if (currentValue + 1 === maxValue) {
+        button.classList.remove('_active');
+        button.classList.add('_disable');
+      } else {
+        button.classList.add('_active');
+        button.classList.remove('_disable');
+      }
+    }
+  });
+});
+
+const decreaseButtonsRoom = document.querySelectorAll(
+  '.button__decrease--room',
+);
+decreaseButtonsRoom.forEach((button) => {
+  button.addEventListener('click', () => {
+    const countElement = button.nextElementSibling;
+    const currentValue = parseInt(countElement.textContent);
+    if (currentValue > 0) {
+      countElement.textContent = currentValue - 1;
+      formInputRoom.value = currentValue - 1;
+      if (currentValue - 1 === 0) {
+        button.classList.remove('_active');
+        button.classList.add('_disable');
+      } else {
+        button.classList.add('_active');
+        button.classList.remove('_disable');
+      }
     }
   });
 });
