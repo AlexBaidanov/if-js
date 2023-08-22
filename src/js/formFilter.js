@@ -60,6 +60,11 @@ const increaseButtonsChild = document.querySelectorAll(
 );
 increaseButtonsChild.forEach((button) => {
   button.addEventListener('click', () => {
+    const adultsCountElement = document.querySelector('.count__adults');
+    const adultsCount = parseInt(adultsCountElement.textContent);
+    if (adultsCount === 0) {
+      return;
+    }
     const countElement = button.previousElementSibling;
     const currentValue = parseInt(countElement.textContent);
     const maxValue = parseInt(button.dataset.maxValue);
