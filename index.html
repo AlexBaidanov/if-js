@@ -119,7 +119,7 @@
               <input
                 class="form__booking form__adults-num form__text text__center"
                 type="text"
-                value="2"
+                value="0"
               />
               <input
                 class="form__date form__dash-left form__text form__desktop text__center"
@@ -157,11 +157,58 @@
               <input
                 class="form__booking form__room-num form__text text__center"
                 type="text"
-                value="1"
+                value="0"
               />
             </div>
             <button class="form__button button">Search</button>
           </form>
+          <div class="form__filter">
+            <div class="filter__block">
+              <p class="filter__description">Adults</p>
+              <button
+                class="button filter__button button__decrease--adults _disable form__text"
+              >
+                -
+              </button>
+              <p class="filter__description _count count__adults">0</p>
+              <button
+                class="button filter__button button__increase--adults _active form__text"
+                data-max-value="30"
+              >
+                +
+              </button>
+            </div>
+            <div class="filter__block">
+              <p class="filter__description">Children</p>
+              <button
+                class="button filter__button button__decrease--children _disable form__text"
+              >
+                -
+              </button>
+              <p class="filter__description _count">0</p>
+              <button
+                class="button filter__button button__increase--children _active form__text"
+                data-max-value="10"
+              >
+                +
+              </button>
+            </div>
+            <div class="filter__block">
+              <p class="filter__description">Rooms</p>
+              <button
+                class="button filter__button button__decrease--room _disable form__text"
+              >
+                -
+              </button>
+              <p class="filter__description _count">0</p>
+              <button
+                class="button filter__button button__increase--room _active form__text"
+                data-max-value="30"
+              >
+                +
+              </button>
+            </div>
+          </div>
           <div class="header__apps">
             <div>
               <a href="#" target="_blank">
@@ -656,5 +703,6 @@
     </footer>
     <script type="module" src="src/js/main.js"></script>
     <script type="module" src="src/js/homesData.js"></script>
+    <script type="module" src="src/js/formFilter.js"></script>
   </body>
 </html>
