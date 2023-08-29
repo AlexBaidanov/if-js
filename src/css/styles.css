@@ -509,9 +509,16 @@
   gap: 16px;
 }
 
+.homes__item {
+  max-width: 25%;
+}
+
 .homes__image {
-  width: 100%;
+  max-width: 100%;
+  min-width: 296px;
+  height: 296px;
   margin-bottom: 24px;
+  object-fit: cover;
 }
 
 .homes__description {
