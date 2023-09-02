@@ -68,7 +68,7 @@
               class="form__destination form__text"
               type="text"
               name="hotel"
-              value="New York"
+              value=""
             />
             <div class="form__date-block">
               <input
@@ -333,6 +333,17 @@
       </div>
     </header>
     <main class="main__content">
+      <section class="homes available">
+        <div class="container">
+          <h2 class="homes__title text__center title">Available hotels</h2>
+          <div class="available__hotels description">
+          </div>
+          <button class="homes__arrow--ellipse button">
+            <div class="homes__arrow--pike"></div>
+          </button>
+        </div>
+      </section>
+
       <section class="offers container">
         <h2 class="offers__title title text__center">What do we offer</h2>
         <div class="offers__variants">
@@ -366,53 +377,6 @@
         <div class="container">
           <h2 class="homes__title text__center title">Homes guests loves</h2>
           <div class="homes__variants description">
-            <!--                  <figure class="homes__item _mobile">-->
-            <!--                    <img-->
-            <!--                      class="homes__image"-->
-            <!--                      src="src/images/homes/hotel.png"-->
-            <!--                      alt="Hotel"-->
-            <!--                    />-->
-            <!--                    <figcaption class="homes__description">Hotel Leopold</figcaption>-->
-            <!--                    <figcaption class="homes__place">-->
-            <!--                      Saint Petersburg, Russia-->
-            <!--                    </figcaption>-->
-            <!--                  </figure>-->
-            <!--                  <figure class="homes__item _mobile">-->
-            <!--                    <img-->
-            <!--                      class="homes__image"-->
-            <!--                      src="src/images/homes/apartment.png"-->
-            <!--                      alt="Apartment"-->
-            <!--                    />-->
-            <!--                    <figcaption class="homes__description">-->
-            <!--                      Apartment Sunshine-->
-            <!--                    </figcaption>-->
-            <!--                    <figcaption class="homes__place">-->
-            <!--                      Santa Cruz de Tenerife, <br />-->
-            <!--                      Spain-->
-            <!--                    </figcaption>-->
-            <!--                  </figure>-->
-            <!--                  <figure class="homes__item _hide">-->
-            <!--                    <img-->
-            <!--                      class="homes__image"-->
-            <!--                      src="src/images/homes/villa.png"-->
-            <!--                      alt="Villa"-->
-            <!--                    />-->
-            <!--                    <figcaption class="homes__description">Villa Kunerad</figcaption>-->
-            <!--                    <figcaption class="homes__place">-->
-            <!--                      Vysokie Tatry, Slowakia-->
-            <!--                    </figcaption>-->
-            <!--                  </figure>-->
-            <!--                  <figure class="homes__item _hide">-->
-            <!--                    <img-->
-            <!--                      class="homes__image"-->
-            <!--                      src="src/images/homes/hostel.png"-->
-            <!--                      alt="Hostel"-->
-            <!--                    />-->
-            <!--                    <figcaption class="homes__description">-->
-            <!--                      Hostel Friendship-->
-            <!--                    </figcaption>-->
-            <!--                    <figcaption class="homes__place">Berlin, Germany</figcaption>-->
-            <!--                  </figure>-->
           </div>
           <button class="homes__arrow--ellipse button">
             <div class="homes__arrow--pike"></div>
@@ -704,5 +668,6 @@
     <script type="module" src="src/js/main.js"></script>
     <script type="module" src="src/js/homesData.js"></script>
     <script type="module" src="src/js/formFilter.js"></script>
+    <script type="module" src="src/js/hotelSearch.js"></script>
   </body>
 </html>
