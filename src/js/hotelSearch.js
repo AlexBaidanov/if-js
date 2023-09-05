@@ -2,26 +2,42 @@ const button = document.querySelector('.form__button');
 const availableBlock = document.querySelector('.available');
 button.addEventListener('click', () => {
   availableBlock.classList.add('_visible');
+  event.preventDefault();
   displayHotels();
 });
 
 function displayHotels() {
-  const search = document.querySelector(
-    'input[class="form__destination"]',
-  ).value;
+  const search = hotelsSearching();
+  const url = hotelsUrl(search);
+  hotelsRequest(url).then((data) => {
+    const hotels = hotelsFilter(data);
+    const content = hotelsContent(hotels);
+    hotelsRender(content);
+  });
+}
 
-  fetch(`https://if-student-api.onrender.com/api/hotels?search=${search}`)
-    .then((response) => response.json())
-    .then((data) => {
-      const filteredData = data.filter((hotel) =>
-        hotel.name.toLowerCase().includes(search.toLowerCase()),
-      );
-      console.log(filteredData);
-      const hotels = filteredData.slice(0, 4);
-      console.log(hotels);
-      let content = '';
-      hotels.forEach((hotel) => {
-        content += `
+function hotelsSearching() {
+  return document.querySelector('[name = "hotel"]').value;
+}
+
+function hotelsUrl(search) {
+  return `https://if-student-api.onrender.com/api/hotels?search=${search}`;
+}
+
+function hotelsRequest(url) {
+  return fetch(url).then((response) =>
+    response.ok ? response.json() : Promise.reject(response),
+  );
+}
+
+function hotelsFilter(data) {
+  return data.slice(0, 4);
+}
+
+function hotelsContent(hotels) {
+  let content = '';
+  hotels.forEach((hotel) => {
+    content += `
           <figure class="homes__item _mobile">
             <img
             class="homes__image"
@@ -33,7 +49,10 @@ function displayHotels() {
             </figcaption>
           </figure>
     `;
-      });
-      document.querySelector('.available__hotels').innerHTML = content;
-    });
+  });
+  return content;
+}
+
+function hotelsRender(content) {
+  document.querySelector('.available__hotels').innerHTML = content;
 }
