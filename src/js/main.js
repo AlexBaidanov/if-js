@@ -32,3 +32,17 @@ function contentHotels(data) {
   document.querySelector('.homes__variants').innerHTML = content;
 }
 displayHotels();
+
+const subform = document.getElementById('subform');
+subform.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const formData = new FormData(subform);
+  fetch('https://if-student-api.onrender.com/api/file', {
+    method: 'post',
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    });
+});
