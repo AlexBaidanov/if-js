@@ -454,6 +454,14 @@
   flex-direction: column;
 }
 
+.available {
+  display: none;
+}
+
+._visible {
+  display: block;
+}
+
 .title:hover:after {
   display: inline-block;
   content: '';
@@ -503,10 +511,16 @@
   position: relative;
 }
 
-.homes__variants {
+.homes__variants,
+.available__hotels {
   display: flex;
   justify-content: space-between;
   gap: 16px;
+}
+
+.available__hotels {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .homes__item {
