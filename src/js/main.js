@@ -1,13 +1,29 @@
+function bubbleSort(data) {
+  const length = data.length;
+  for (let i = 0; i < length; i++) {
+    for (let j = 0; j < length - i - 1; j++) {
+      if (data[j].name > data[j + 1].name) {
+        const temp = data[j];
+        data[j] = data[j + 1];
+        data[j + 1] = temp;
+      }
+    }
+  }
+  return data;
+}
+
 function displayHotels() {
   let data = sessionStorage.getItem('hotels');
   if (data) {
     data = JSON.parse(data);
+    data = bubbleSort(data);
     contentHotels(data);
   } else {
     fetch('https://if-student-api.onrender.com/api/hotels/popular')
       .then((response) => response.json())
       .then((data) => {
         sessionStorage.setItem('hotels', JSON.stringify(data));
+        data = bubbleSort(data);
         contentHotels(data);
       });
   }
@@ -32,17 +48,3 @@ function contentHotels(data) {
   document.querySelector('.homes__variants').innerHTML = content;
 }
 displayHotels();
-
-const subform = document.getElementById('subform');
-subform.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const formData = new FormData(subform);
-  fetch('https://if-student-api.onrender.com/api/file', {
-    method: 'post',
-    body: formData,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    });
-});
