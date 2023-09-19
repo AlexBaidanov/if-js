@@ -1,14 +1,38 @@
 const button = document.querySelector('.form__button');
 const availableBlock = document.querySelector('.available');
-button.addEventListener('click', () => {
+
+const formInputAdult = document.querySelector('.form__adults-num');
+const formInputChild = document.querySelector('.form__children-num');
+const formInputRoom = document.querySelector('.form__room-num');
+
+button.addEventListener('click', (event) => {
   availableBlock.classList.add('_visible');
   event.preventDefault();
+
+  const adults = formInputAdult.value;
+  if (adults === '0') {
+    alert('Количество взрослых не может быть равно 0');
+    return;
+  }
+
+  const rooms = formInputRoom.value;
+  if (rooms === '0') {
+    alert('Количество комнат не может быть равно 0');
+    return;
+  }
+
   displayHotels();
 });
 
 function displayHotels() {
   const search = hotelsSearching();
-  const url = hotelsUrl(search);
+
+  const adults = formInputAdult.value;
+  const children = formInputChild.value;
+  const rooms = formInputRoom.value;
+
+  const url = hotelsUrl(search, adults, children, rooms);
+
   hotelsRequest(url).then((data) => {
     const hotels = hotelsFilter(data);
     const content = hotelsContent(hotels);
@@ -20,8 +44,8 @@ function hotelsSearching() {
   return document.querySelector('[name = "hotel"]').value;
 }
 
-function hotelsUrl(search) {
-  return `https://if-student-api.onrender.com/api/hotels?search=${search}`;
+function hotelsUrl(search, adults, children, rooms) {
+  return `https://if-student-api.onrender.com/api/hotels?search=${search}&adults=${adults}&children=${children}&rooms=${rooms}`;
 }
 
 function hotelsRequest(url) {
